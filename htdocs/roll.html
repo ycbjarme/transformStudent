@@ -7,37 +7,32 @@
     <style>
         * { box-sizing: border-box; }
 
-        /* Container for the image and the overlaying squares */
         #roll {
             width: 400px;
             height: 400px;
             margin: 30px auto;
-            position: relative; /* Needed to stack divs on top of the image */
+            position: relative;
             display: flex;
-            flex-wrap: wrap; /* Allows squares to wrap into a 2x2 grid */
+            flex-wrap: wrap; 
             overflow: hidden;
             background-color: #eee;
         }
 
-        /* The hidden kitten image */
         #roll img {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 1; /* Sits behind the colored squares */
+            z-index: 1; 
         }
 
-        /* The colored squares */
         #roll div {
             width: 200px;
             height: 200px;
             transition: all 0.5s ease-in-out;
-            z-index: 2; /* Sits on top of the image */
+            z-index: 2; 
         }
 
-        /* Hover Effect: The "Hexagon/Diamond" cutout */
-        /* We use clip-path to trim the corners of each square */
         #roll:hover div:nth-of-type(1) { 
             transform: translate(-50px, -50px); 
             clip-path: polygon(100% 0, 100% 100%, 25% 100%);
@@ -55,7 +50,6 @@
             clip-path: polygon(0 0, 75% 0, 0 100%);
         }
 
-        /* Square Colors */
         #roll div:nth-of-type(1) { background-color: red; }
         #roll div:nth-of-type(2) { background-color: yellow; }
         #roll div:nth-of-type(3) { background-color: blue; }
@@ -69,7 +63,7 @@
 
     <div id="roll">
         <a href="../index.html">
-            <img src="https://www.ba-bamail.com/content.aspx?id=12853" alt="Kitten">
+            <img src="funny.jpg" alt="Kitten">
         </a>
         <div></div>
         <div></div>
@@ -79,7 +73,7 @@
 
     <p>
         Click on the Image for Home<br/>
-        Source: <a href="https://www.ba-bamail.com/cute-overload/75-of-the-cutest-kittens-in-the-world/">https://www.ba-bamail.com/cute-overload/75-of-the-cutest-kittens-in-the-world/</a>
+        Source: <a href="funny.jpg</a>
     </p>
     
 </body>
