@@ -7,19 +7,17 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* The container needs to be relative so the image can sit behind the divs */
         #roll {
             width: 400px;
             height: 400px;
-            margin: 30px auto;
+            margin: 50px auto;
             position: relative;
             display: flex;
-            flex-wrap: wrap;
-            overflow: hidden;
-            cursor: pointer;
+            flex-wrap: wrap; /* Arranges the 4 divs in a 2x2 grid */
+            overflow: visible; /* Allows the shapes to slide out slightly if needed */
         }
 
-        /* This places the kitten image underneath the colored blocks */
+        /* The Kitten Image - Sits behind everything */
         #roll img {
             position: absolute;
             top: 0;
@@ -30,48 +28,56 @@
             object-fit: cover;
         }
 
-        /* The colored squares */
+        /* Common style for the 4 colored squares */
         #roll div {
             width: 200px;
             height: 200px;
-            position: relative;
-            z-index: 2; /* Sits above the image */
-            transition: all 0.5s ease;
+            z-index: 2;
+            transition: all 0.6s ease-in-out;
         }
 
-        /* Square Colors */
+        /* Assigning colors */
         #roll div:nth-of-type(1) { background-color: red; }
         #roll div:nth-of-type(2) { background-color: yellow; }
         #roll div:nth-of-type(3) { background-color: blue; }
         #roll div:nth-of-type(4) { background-color: green; }
 
-        /* Hover Effect: Moving the squares and clipping them into the hexagon shape */
-        #roll:hover div:nth-of-type(1) { 
-            transform: translate(-40px, -40px); 
-            clip-path: polygon(100% 0, 100% 100%, 30% 100%); 
-        }
-        #roll:hover div:nth-of-type(2) { 
-            transform: translate(40px, -40px); 
-            clip-path: polygon(0 0, 0 100%, 70% 100%); 
-        }
-        #roll:hover div:nth-of-type(3) { 
-            transform: translate(-40px, 40px); 
-            clip-path: polygon(100% 0, 30% 0, 100% 100%); 
-        }
-        #roll:hover div:nth-of-type(4) { 
-            transform: translate(40px, 40px); 
-            clip-path: polygon(0 0, 70% 0, 0 100%); 
+        /* THE HOVER EFFECT: Creating the arrow/hexagon shapes */
+        
+        /* Red Square (Top Left) -> Moves Left and shears */
+        #roll:hover div:nth-of-type(1) {
+            transform: translateX(-100px);
+            clip-path: polygon(100% 0, 100% 100%, 50% 50%);
         }
 
-        p { text-align: center; font-family: sans-serif; margin-top: 10px; }
+        /* Yellow Square (Top Right) -> Moves Right and shears */
+        #roll:hover div:nth-of-type(2) {
+            transform: translateX(100px);
+            clip-path: polygon(0 0, 50% 50%, 0 100%);
+        }
+
+        /* Blue Square (Bottom Left) -> Moves Left and shears */
+        #roll:hover div:nth-of-type(3) {
+            transform: translateX(-100px);
+            clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+        }
+
+        /* Green Square (Bottom Right) -> Moves Right and shears */
+        #roll:hover div:nth-of-type(4) {
+            transform: translateX(100px);
+            clip-path: polygon(0 0, 50% 50%, 0 100%);
+        }
+
+        p { text-align: center; font-family: Arial, sans-serif; margin-top: 20px; }
     </style>
 </head>
 <body>
 
     <div id="roll">
         <a href="../index.html">
-            <img src="images/funny.jpg" alt="Kitten Image">
+            <img src="images/funny.jpg" alt="funny kitten">
         </a>
+        
         <div></div>
         <div></div>
         <div></div>
